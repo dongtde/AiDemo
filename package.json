@@ -1,0 +1,36 @@
+{
+  "name": "vite-vue3-vuetify-app",
+  "version": "1.0.0",
+  "description": "A Vite 5 + Vue 3 + TypeScript + Vuetify 3 application",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dongtde/AiDemo.git"
+  },
+  "keywords": ["vite", "vue3", "vuetify", "typescript", "pinia"],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dongtde/AiDemo/issues"
+  },
+  "homepage": "https://github.com/dongtde/AiDemo#readme",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "vite-plugin-vuetify": "^2.1.2",
+    "vue-tsc": "^3.1.1"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "pinia": "^3.0.3",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3",
+    "vuetify": "^3.10.7"
+  }
+}
