@@ -1,27 +1,53 @@
-export interface User {
-  id: number
-  name: string
-  email: string
-  role: string
-}
+import type { User } from '@/types/music'
+import { mockPlaylists, mockSongs } from './music'
 
 export const mockUsers: User[] = [
   {
-    id: 1,
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    role: 'Admin',
+    id: 'user-1',
+    username: 'matrix_soul',
+    nickname: 'MatrixSoul',
+    email: 'matrixsoul@example.com',
+    phone: '+86-13800000000',
+    avatarUrl: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80',
+    gender: 'male',
+    birthday: '1995-04-12',
+    region: 'Neo City',
+    signature: 'Hack the planet, feel the beat.',
+    vipLevel: 'svip',
+    vipExpireDate: '2025-12-31',
+    isVerified: true,
+    followers: 15243,
+    following: 321,
+    playlists: mockPlaylists,
+    likedSongs: mockSongs.slice(0, 10),
+    recentPlays: mockSongs.slice(0, 5).map(song => ({
+      song,
+      playTime: new Date().toISOString(),
+      playCount: song.playCount,
+    })),
   },
   {
-    id: 2,
-    name: 'Jane Smith',
-    email: 'jane.smith@example.com',
-    role: 'User',
-  },
-  {
-    id: 3,
-    name: 'Bob Johnson',
-    email: 'bob.johnson@example.com',
-    role: 'User',
+    id: 'user-2',
+    username: 'cyber_guard',
+    nickname: 'CyberGuard',
+    email: 'cyberguard@example.com',
+    phone: '+86-13900000000',
+    avatarUrl: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=200&q=80',
+    gender: 'female',
+    birthday: '1992-10-05',
+    region: 'Shanghai',
+    signature: '守护每一拍的律动。',
+    vipLevel: 'vip',
+    vipExpireDate: '2025-03-15',
+    isVerified: true,
+    followers: 8543,
+    following: 154,
+    playlists: mockPlaylists,
+    likedSongs: mockSongs.slice(0, 8),
+    recentPlays: mockSongs.slice(0, 5).map(song => ({
+      song,
+      playTime: new Date().toISOString(),
+      playCount: song.playCount,
+    })),
   },
 ]
