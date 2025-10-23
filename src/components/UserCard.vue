@@ -4,17 +4,23 @@
       <v-avatar :color="avatarColor" size="40" class="mr-3">
         <v-icon>{{ icon }}</v-icon>
       </v-avatar>
-      <span>{{ user.name }}</span>
+      <div>
+        <div class="geek-text">{{ user.nickname }}</div>
+        <div class="text-caption" style="color: #00ffff">@{{ user.username }}</div>
+      </div>
     </v-card-title>
     <v-card-text>
       <div class="mb-2">
         <v-icon size="small" class="mr-2">mdi-email</v-icon>
         {{ user.email }}
       </div>
-      <div>
-        <v-chip :color="roleColor" size="small">
-          {{ user.role }}
-        </v-chip>
+      <div class="mb-2">
+        <v-icon size="small" class="mr-2">mdi-phone</v-icon>
+        {{ user.phone }}
+      </div>
+      <div class="text-caption" style="color: #00ffff">{{ user.signature }}</div>
+      <div class="mt-3">
+        <v-chip :color="roleColor" size="small">VIP: {{ user.vipLevel.toUpperCase() }}</v-chip>
       </div>
     </v-card-text>
     <v-card-actions>
@@ -30,7 +36,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { User } from '@/mock/users'
+import type { User } from '@/types/music'
 
 interface Props {
   user: User
@@ -49,11 +55,14 @@ const emit = defineEmits<{
 }>()
 
 const avatarColor = computed(() => {
-  return props.user.role === 'Admin' ? 'primary' : 'secondary'
+  if (!props.user.vipLevel || props.user.vipLevel === 'free') return 'secondary'
+  return props.user.vipLevel === 'svip' ? 'primary' : 'secondary'
 })
 
 const roleColor = computed(() => {
-  return props.user.role === 'Admin' ? 'primary' : 'default'
+  if (props.user.vipLevel === 'svip') return 'success'
+  if (props.user.vipLevel === 'vip') return 'secondary'
+  return 'default'
 })
 
 const handleView = () => {

@@ -1,22 +1,82 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import DefaultLayout from '@/layouts/DefaultLayout.vue'
-import Home from '@/views/Home.vue'
-import About from '@/views/About.vue'
+import MusicLayout from '@/layouts/MusicLayout.vue'
+import MusicHome from '@/views/MusicHome.vue'
+import Discover from '@/views/Discover.vue'
+import Library from '@/views/Library.vue'
+import PlaylistHub from '@/views/PlaylistHub.vue'
+import ArtistCenter from '@/views/ArtistCenter.vue'
+import AlbumCenter from '@/views/AlbumCenter.vue'
+import RankHub from '@/views/RankHub.vue'
+import MVCenter from '@/views/MVCenter.vue'
+import PlaylistDetail from '@/views/PlaylistDetail.vue'
+import UserCenter from '@/views/UserCenter.vue'
+import SocialHub from '@/views/SocialHub.vue'
+import SettingsCenter from '@/views/SettingsCenter.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: DefaultLayout,
+    component: MusicLayout,
     children: [
       {
         path: '',
         name: 'Home',
-        component: Home,
+        component: MusicHome,
       },
       {
-        path: 'about',
-        name: 'About',
-        component: About,
+        path: 'discover',
+        name: 'Discover',
+        component: Discover,
+      },
+      {
+        path: 'library',
+        name: 'Library',
+        component: Library,
+      },
+      {
+        path: 'playlists',
+        name: 'Playlists',
+        component: PlaylistHub,
+      },
+      {
+        path: 'artists',
+        name: 'Artists',
+        component: ArtistCenter,
+      },
+      {
+        path: 'albums',
+        name: 'Albums',
+        component: AlbumCenter,
+      },
+      {
+        path: 'ranks',
+        name: 'Ranks',
+        component: RankHub,
+      },
+      {
+        path: 'mvs',
+        name: 'MVs',
+        component: MVCenter,
+      },
+      {
+        path: 'playlist/:id',
+        name: 'PlaylistDetail',
+        component: PlaylistDetail,
+      },
+      {
+        path: 'profile',
+        name: 'Profile',
+        component: UserCenter,
+      },
+      {
+        path: 'social',
+        name: 'Social',
+        component: SocialHub,
+      },
+      {
+        path: 'settings',
+        name: 'Settings',
+        component: SettingsCenter,
       },
     ],
   },
